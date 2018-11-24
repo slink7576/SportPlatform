@@ -7,9 +7,11 @@
 // ReSharper disable InconsistentNaming
 
 import { mergeMap as _observableMergeMap, catchError as _observableCatch } from 'rxjs/operators';
-import { Observable, throwError as _observableThrow, of as _observableOf } from 'rxjs';
 import { Injectable, Inject, Optional, InjectionToken } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { _throw as _observableThrow } from 'rxjs/observable/throw';
+import { of as _observableOf } from 'rxjs/observable/of';
 
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
@@ -39,7 +41,7 @@ export interface IClient {
 }
 
 @Injectable()
-export class Client implements IClient {
+export class UserClient implements IClient {
     private http: HttpClient;
     private baseUrl: string;
     protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;

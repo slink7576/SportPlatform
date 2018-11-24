@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Client, UsersListViewModel, UserDTO } from '../sport-platform-api';
+import { UserClient, UsersListViewModel, UserDTO } from '../sport-platform-api';
 
 @Component({
   selector: 'app-fetch-data',
@@ -9,10 +9,11 @@ import { Client, UsersListViewModel, UserDTO } from '../sport-platform-api';
 export class FetchDataComponent {
   public users: UserDTO[];
 
-  constructor(client: Client) {
+  constructor(client: UserClient) {
     client.get().subscribe(result => {
+      console.log(result);
       this.users = result.users;
-    }, error => console.log(error));
+    });
   }
 }
 
