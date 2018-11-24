@@ -6,13 +6,12 @@ using System.Text;
 
 namespace SportPlatform.Persistence.Configurations
 {
-    public class UserConfiguration
+    public class WorkHistoryConfiguration
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<WorkHistory> builder)
         {
             builder.HasOne(c => c.Worker)
-                .WithOne(c => c.User)
-                .HasForeignKey<Worker>(c => c.WorkerId);
+                .WithMany(c => c.WorkHistories);
         }
     }
 }

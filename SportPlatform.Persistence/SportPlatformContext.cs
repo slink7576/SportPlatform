@@ -18,8 +18,8 @@ namespace SportPlatform.Persistence
         public DbSet<Certificate> Certificates { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Dish> Dishes { get; set; }
-        //public DbSet<DishIngridient> DishIngridients { get; set; }
-        //public DbSet<DishMenu> DishMenus { get; set; }
+        public DbSet<DishIngridient> DishIngridients { get; set; }
+        public DbSet<DishMenu> DishMenus { get; set; }
         public DbSet<FoodProgram> FoodPrograms { get; set; }
         public DbSet<Ingridient> Ingridients { get; set; }
         public DbSet<Menu> Menus { get; set; }
