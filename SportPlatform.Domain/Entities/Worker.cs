@@ -12,6 +12,7 @@ namespace SportPlatform.Domain.Entities
             this.Courses = new HashSet<Course>();
             this.Certificates = new HashSet<Certificate>();
             this.TrainingPrograms = new HashSet<TrainingProgram>();
+            this.FoodPrograms = new HashSet<FoodProgram>();
         }
         public int WorkerId { get; set; }
         public string About { get; set; }
@@ -23,6 +24,7 @@ namespace SportPlatform.Domain.Entities
         public User User { get; set; }
         public ICollection<WorkHistory> WorkHistories { get; private set; }
         public ICollection<Course> Courses { get; private set; }
+        public ICollection<FoodProgram> FoodPrograms { get; private set; }
         public ICollection<Certificate> Certificates { get; private set; }
         public ICollection<TrainingProgram> TrainingPrograms { get; private set; }
     }

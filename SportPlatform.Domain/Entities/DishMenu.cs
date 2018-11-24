@@ -6,6 +6,8 @@ namespace SportPlatform.Domain.Entities
 {
     public class DishMenu
     {
+        public int DishMenuId { get; set; }
+
         public int DishId { get; set; }
         public Dish Dish { get; set; }
 
