@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace SportPlatform.Application.Users.Queries.GetUser
+namespace SportPlatform.Application.Users.Queries.GetAllUsersQuery
 {
-    public class UserViewModel
+    public class UserDTO
     {
         public int UserId { get; set; }
         public string Name { get; set; }
@@ -25,11 +25,11 @@ namespace SportPlatform.Application.Users.Queries.GetUser
 
         public bool IsWorker { get; set; }
 
-        public static Expression<Func<User, UserViewModel>> Projection
+        public static Expression<Func<User, UserDTO>> Projection
         {
             get
             {
-                return c => new UserViewModel
+                return c => new UserDTO
                 {
                     UserId = c.UserId,
                     Age = c.Age,
@@ -48,7 +48,7 @@ namespace SportPlatform.Application.Users.Queries.GetUser
             }
         }
 
-        public static UserViewModel Create(User user)
+        public static UserDTO Create(User user)
         {
             return Projection.Compile().Invoke(user);
         }

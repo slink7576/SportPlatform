@@ -1,0 +1,43 @@
+﻿using MediatR;
+using SportPlatform.Domain.Entities;
+using SportPlatform.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace SportPlatform.Application.Users.Commands.CreateUser
+{
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, int>
+    {
+        private readonly SportPlatformContext _context;
+
+        public CreateUserCommandHandler(SportPlatformContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        {
+            var entity = new User
+            {
+                Name = request.Name,
+                Surname = request.Surname,
+                Email = request.Email,
+                Password = request.Password,
+                Age = request.Age,
+                Phone = request.Phone,
+                PhotoUrl = request.PhotoUrl,
+                SubmittedEmail = false
+            };
+
+
+            _context.Users.Add(entity);
+
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return entity.UserId;
+        }
+    }
+}
