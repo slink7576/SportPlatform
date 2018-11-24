@@ -42,8 +42,7 @@ namespace SportPlatform.Application.Users.Queries.GetAllUsersQuery
                     Surname = c.Surname,
                     UserType = c.UserType,
                     Worker = c.Worker,
-                    WorkerId = c.WorkerId,
-                    IsWorker = c.WorkerId == null ? false : true
+                    IsWorker = c.Worker == null ? false : true
                 };
             }
         }
