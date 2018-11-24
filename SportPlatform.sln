@@ -17,17 +17,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{4FB071D6-19FD-48A4-9B89-A317A6A1CE7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPlatform.WebUI", "SportPlatform.WebUI\SportPlatform.WebUI.csproj", "{BF7D7050-DB31-48AA-9F24-FF648A9439F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportPlatform.WebUI", "SportPlatform.WebUI\SportPlatform.WebUI.csproj", "{BF7D7050-DB31-48AA-9F24-FF648A9439F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPlatform.Infrastructure", "SportPlatform.Infrastructure\SportPlatform.Infrastructure.csproj", "{236B2D78-37B3-4C6F-AAA3-A0FDB902881C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportPlatform.Infrastructure", "SportPlatform.Infrastructure\SportPlatform.Infrastructure.csproj", "{236B2D78-37B3-4C6F-AAA3-A0FDB902881C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPlatform.Persistence", "SportPlatform.Persistence\SportPlatform.Persistence.csproj", "{D16AEC36-45EB-4874-B046-E84624162D08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportPlatform.Persistence", "SportPlatform.Persistence\SportPlatform.Persistence.csproj", "{D16AEC36-45EB-4874-B046-E84624162D08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPlatform.Application", "SportPlatform.Application\SportPlatform.Application.csproj", "{EC353499-0B24-4F1D-822B-458DA9822AA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportPlatform.Application", "SportPlatform.Application\SportPlatform.Application.csproj", "{EC353499-0B24-4F1D-822B-458DA9822AA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPlatform.Domain", "SportPlatform.Domain\SportPlatform.Domain.csproj", "{3DDEDBD5-7B98-47EE-AE94-F03994A46B80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportPlatform.Domain", "SportPlatform.Domain\SportPlatform.Domain.csproj", "{3DDEDBD5-7B98-47EE-AE94-F03994A46B80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportPlatform.Common", "SportPlatform.Common\SportPlatform.Common.csproj", "{0793A560-7FA8-4FD2-99D0-F8B943EB62EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportPlatform.Common", "SportPlatform.Common\SportPlatform.Common.csproj", "{0793A560-7FA8-4FD2-99D0-F8B943EB62EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,7 +73,7 @@ Global
 		{D16AEC36-45EB-4874-B046-E84624162D08} = {7027CA7B-636A-426A-9775-7FFA681FDD4B}
 		{EC353499-0B24-4F1D-822B-458DA9822AA0} = {F3ED3823-A8A5-4893-B6EA-EDC42330DD67}
 		{3DDEDBD5-7B98-47EE-AE94-F03994A46B80} = {F3ED3823-A8A5-4893-B6EA-EDC42330DD67}
-		{0793A560-7FA8-4FD2-99D0-F8B943EB62EC} = {F3ED3823-A8A5-4893-B6EA-EDC42330DD67}
+		{0793A560-7FA8-4FD2-99D0-F8B943EB62EC} = {7D6678EF-B57B-45ED-A9F8-B7ECD84FDCDB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {045B3B24-872E-4779-953C-AA59904234F5}
