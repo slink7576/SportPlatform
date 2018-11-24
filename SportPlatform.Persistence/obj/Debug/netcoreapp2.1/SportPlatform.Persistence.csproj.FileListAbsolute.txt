@@ -1,6 +1,0 @@
-C:\Projects\SportSystem\ConsoleApp1\SportPlatform.Persistence\bin\Debug\netcoreapp2.1\SportPlatform.Persistence.deps.json
-C:\Projects\SportSystem\ConsoleApp1\SportPlatform.Persistence\bin\Debug\netcoreapp2.1\SportPlatform.Persistence.dll
-C:\Projects\SportSystem\ConsoleApp1\SportPlatform.Persistence\obj\Debug\netcoreapp2.1\SportPlatform.Persistence.csprojAssemblyReference.cache
-C:\Projects\SportSystem\ConsoleApp1\SportPlatform.Persistence\obj\Debug\netcoreapp2.1\SportPlatform.Persistence.csproj.CoreCompileInputs.cache
-C:\Projects\SportSystem\ConsoleApp1\SportPlatform.Persistence\obj\Debug\netcoreapp2.1\SportPlatform.Persistence.AssemblyInfoInputs.cache
-C:\Projects\SportSystem\ConsoleApp1\SportPlatform.Persistence\obj\Debug\netcoreapp2.1\SportPlatform.Persistence.AssemblyInfo.cs
