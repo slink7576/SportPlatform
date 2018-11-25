@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:root {
+  --main-color: #673ab7;
+  --secondary-color: #1e88e5;
+  --gray-color: #d9dad9;
+}
+.main-bg {
+  background-color: var(--main-color);
+  color: white;
+}
+.secondary-bg {
+  background-color: var(--secondary-color);
+  color: white;
+}
+.text-main {
+  color: var(--main-color);
+}
+.text-second {
+  color: var(--secondary-color);
+}
+.vl {
+  border-left: 3px solid var(--secondary-color);
+}
+.vr {
+  border-left: 3px solid var(--secondary-color);
+}
+.hr{
+  color: var(--main-color)
+}
+.roundedbord {
+  border: 1px solid var(--gray-color);
+  border-radius: 2px;
+}

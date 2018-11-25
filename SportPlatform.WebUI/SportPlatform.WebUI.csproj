@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
     <IsPackable>false</IsPackable>
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
@@ -28,8 +29,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\components\admin\nav\admin-nav-component.ts" />
+    <None Remove="ClientApp\src\app\components\admin\users\admin-users-component.ts" />
+    <None Remove="ClientApp\src\app\components\landing\main\landing-main-component.ts" />
+    <None Remove="ClientApp\src\app\components\landing\register\landing-register-component.ts" />
+    <None Remove="ClientApp\src\app\material-module.ts" />
+    <None Remove="ClientApp\src\validators\password-validator.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SportPlatform.Application\SportPlatform.Application.csproj" />
     <ProjectReference Include="..\SportPlatform.Persistence\SportPlatform.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\components\admin\nav\admin-nav-component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\admin\users\admin-users-component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\landing\main\landing-main-component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\landing\register\landing-register-component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\material-module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\validators\password-validator.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\components\cabinet\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
