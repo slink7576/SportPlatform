@@ -1,34 +1,39 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { UserClient } from './sport-platform-api';
+import { Client } from './sport-platform-api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomMaterialModule } from './material-module';
+import { LandingMainComponent } from './components/landing/main/landing-main-component';
+import { AdminNavComponent } from './components/admin/nav/admin-nav-component';
+import { AdminUsersComponent } from './components/admin/users/admin-users-component';
+import { LandingRegisterComponent } from './components/landing/register/landing-register-component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    LandingMainComponent,
+    AdminNavComponent,
+  LandingRegisterComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ])
+      { path: '', component: LandingMainComponent, pathMatch: 'full' },
+      { path: 'admin/users', component: AdminUsersComponent },
+    ]),
+    BrowserAnimationsModule,
+    CustomMaterialModule
   ],
-  providers: [UserClient],
+  providers: [Client],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
