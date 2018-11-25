@@ -23,12 +23,8 @@ namespace SportPlatform.Application.Users.Commands.CreateUser
             var entity = new User
             {
                 Name = request.Name,
-                Surname = request.Surname,
                 Email = request.Email,
                 Password = request.Password,
-                Age = request.Age,
-                Phone = request.Phone,
-                PhotoUrl = request.PhotoUrl,
                 SubmittedEmail = false
             };
 
