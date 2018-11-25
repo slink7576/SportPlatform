@@ -1,0 +1,42 @@
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Как вас зовут?</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Имя" formControlName="Name" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Регистрация</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Почта" formControlName="Email" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput placeholder="Пароль" type="password" formControlName="Password" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput placeholder="Подтвердите пароль" type="password" formControlName="ConfirmPassword" required>
+      </mat-form-field>
+      
+      <div>
+        <button mat-button matStepperPrevious>Назад</button>
+        <button mat-button matStepperNext>Далее</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Подтверждение</ng-template>
+    <button mat-button (click)="Register()">Подтвердить</button>
+  </mat-step>
+</mat-horizontal-stepper>
+
