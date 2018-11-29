@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, TemplateRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -11,6 +11,13 @@ import { LandingMainComponent } from './components/landing/main/landing-main-com
 import { AdminNavComponent } from './components/admin/nav/admin-nav-component';
 import { AdminUsersComponent } from './components/admin/users/admin-users-component';
 import { LandingRegisterComponent } from './components/landing/register/landing-register-component';
+import { LandingLoginComponent } from './components/landing/login/landing-login-component';
+import { CabinetUserComponent } from './components/cabinet/user/cabinet-user-component';
+import { LoginUserService } from './services/login-user-service';
+import { LoginAdminService } from './services/login-admin-service';
+import { CabinetNavComponent } from './components/cabinet/nav/cabinet-nav-componentt';
+import { InfoBlockComponent } from './components/shared/infoblock/infoblock-component';
+import { MatStepLabel } from '@angular/material';
 
 
 @NgModule({
@@ -18,8 +25,12 @@ import { LandingRegisterComponent } from './components/landing/register/landing-
     AppComponent,
     LandingMainComponent,
     AdminNavComponent,
-  LandingRegisterComponent,
-    AdminUsersComponent
+    LandingRegisterComponent,
+    AdminUsersComponent,
+    LandingLoginComponent,
+    CabinetUserComponent,
+    CabinetNavComponent,
+InfoBlockComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,12 +39,13 @@ import { LandingRegisterComponent } from './components/landing/register/landing-
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: LandingMainComponent, pathMatch: 'full' },
-      { path: 'admin/users', component: AdminUsersComponent },
+      { path: 'user/dashboard', component: CabinetUserComponent, canActivate: [LoginUserService] },
+      { path: 'admin/users', component: AdminUsersComponent, canActivate: [LoginAdminService] },
     ]),
     BrowserAnimationsModule,
     CustomMaterialModule
   ],
-  providers: [Client],
+  providers: [Client, LoginUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
