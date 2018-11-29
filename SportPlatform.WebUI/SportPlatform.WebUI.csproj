@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
     <IsPackable>false</IsPackable>
@@ -11,6 +11,7 @@
 
     <!-- Set this to true if you enable server-side prerendering -->
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
+    <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,16 +25,29 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="ClientApp\NewFolder\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\NewFolder\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="ClientApp\NewFolder\**" />
+    <None Remove="ClientApp\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\components\admin\nav\admin-nav-component.ts" />
     <None Remove="ClientApp\src\app\components\admin\users\admin-users-component.ts" />
+    <None Remove="ClientApp\src\app\components\cabinet\nav\cabinet-nav-componentt.ts" />
+    <None Remove="ClientApp\src\app\components\cabinet\user\cabinet-user-component.ts" />
+    <None Remove="ClientApp\src\app\components\landing\login\landing-login-component.ts" />
     <None Remove="ClientApp\src\app\components\landing\main\landing-main-component.ts" />
     <None Remove="ClientApp\src\app\components\landing\register\landing-register-component.ts" />
+    <None Remove="ClientApp\src\app\components\shared\infoblock\infoblock-component.ts" />
     <None Remove="ClientApp\src\app\material-module.ts" />
+    <None Remove="ClientApp\src\app\services\login-admin-service.ts" />
+    <None Remove="ClientApp\src\app\services\login-user-service.ts" />
     <None Remove="ClientApp\src\validators\password-validator.ts" />
   </ItemGroup>
 
@@ -45,14 +59,16 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\components\admin\nav\admin-nav-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\admin\users\admin-users-component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\cabinet\nav\cabinet-nav-componentt.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\cabinet\user\cabinet-user-component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\landing\login\landing-login-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\landing\main\landing-main-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\landing\register\landing-register-component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\shared\infoblock\infoblock-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\material-module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\login-admin-service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\login-user-service.ts" />
     <TypeScriptCompile Include="ClientApp\src\validators\password-validator.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\src\app\components\cabinet\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
