@@ -17,25 +17,30 @@ export interface IClient {
     /**
      * @return Success
      */
-    get(): Observable<UsersListViewModel>;
+    getAllUsers(): Observable<UsersListViewModel>;
     /**
      * @return Success
      */
-    get2(id: number): Observable<void>;
-    /**
-     * @param command (optional) 
-     * @return Success
-     */
-    post(command: CreateUserCommand | null | undefined): Observable<UserViewModel>;
+    get(id: number): Observable<void>;
     /**
      * @param command (optional) 
      * @return Success
      */
-    put(id: number, command: UpdateUserCommand | null | undefined): Observable<UserDTO>;
+    registerUser(command: CreateUserCommand | null | undefined): Observable<UserViewModel>;
+    /**
+     * @param command (optional) 
+     * @return Success
+     */
+    login(command: LoginUserQuery | null | undefined): Observable<boolean>;
+    /**
+     * @param command (optional) 
+     * @return Success
+     */
+    putUser(id: number, command: UpdateUserCommand | null | undefined): Observable<UserDTO>;
     /**
      * @return Success
      */
-    delete(id: number): Observable<void>;
+    deleteUser(id: number): Observable<void>;
 }
 
 @Injectable()
@@ -52,8 +57,8 @@ export class Client implements IClient {
     /**
      * @return Success
      */
-    get(): Observable<UsersListViewModel> {
-        let url_ = this.baseUrl + "/api/Users/Get";
+    getAllUsers(): Observable<UsersListViewModel> {
+        let url_ = this.baseUrl + "/api/Users/GetAllUsers";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -65,11 +70,11 @@ export class Client implements IClient {
         };
 
         return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processGet(response_);
+            return this.processGetAllUsers(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processGet(<any>response_);
+                    return this.processGetAllUsers(<any>response_);
                 } catch (e) {
                     return <Observable<UsersListViewModel>><any>_observableThrow(e);
                 }
@@ -78,7 +83,7 @@ export class Client implements IClient {
         }));
     }
 
-    protected processGet(response: HttpResponseBase): Observable<UsersListViewModel> {
+    protected processGetAllUsers(response: HttpResponseBase): Observable<UsersListViewModel> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -103,8 +108,8 @@ export class Client implements IClient {
     /**
      * @return Success
      */
-    get2(id: number): Observable<void> {
-        let url_ = this.baseUrl + "/api/Users/Get/{id}";
+    get(id: number): Observable<void> {
+        let url_ = this.baseUrl + "/api/Users/GetUser/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -118,11 +123,11 @@ export class Client implements IClient {
         };
 
         return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processGet2(response_);
+            return this.processGet(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processGet2(<any>response_);
+                    return this.processGet(<any>response_);
                 } catch (e) {
                     return <Observable<void>><any>_observableThrow(e);
                 }
@@ -131,7 +136,7 @@ export class Client implements IClient {
         }));
     }
 
-    protected processGet2(response: HttpResponseBase): Observable<void> {
+    protected processGet(response: HttpResponseBase): Observable<void> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -154,8 +159,8 @@ export class Client implements IClient {
      * @param command (optional) 
      * @return Success
      */
-    post(command: CreateUserCommand | null | undefined): Observable<UserViewModel> {
-        let url_ = this.baseUrl + "/api/Users/Post";
+    registerUser(command: CreateUserCommand | null | undefined): Observable<UserViewModel> {
+        let url_ = this.baseUrl + "/api/Users/RegisterUser";
         url_ = url_.replace(/[?&]$/, "");
 
         const content_ = JSON.stringify(command);
@@ -171,11 +176,11 @@ export class Client implements IClient {
         };
 
         return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processPost(response_);
+            return this.processRegisterUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processPost(<any>response_);
+                    return this.processRegisterUser(<any>response_);
                 } catch (e) {
                     return <Observable<UserViewModel>><any>_observableThrow(e);
                 }
@@ -184,7 +189,7 @@ export class Client implements IClient {
         }));
     }
 
-    protected processPost(response: HttpResponseBase): Observable<UserViewModel> {
+    protected processRegisterUser(response: HttpResponseBase): Observable<UserViewModel> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -210,8 +215,64 @@ export class Client implements IClient {
      * @param command (optional) 
      * @return Success
      */
-    put(id: number, command: UpdateUserCommand | null | undefined): Observable<UserDTO> {
-        let url_ = this.baseUrl + "/api/Users/Put/{id}";
+    login(command: LoginUserQuery | null | undefined): Observable<boolean> {
+        let url_ = this.baseUrl + "/api/Users/Login";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(command);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processLogin(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processLogin(<any>response_);
+                } catch (e) {
+                    return <Observable<boolean>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<boolean>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processLogin(response: HttpResponseBase): Observable<boolean> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 !== undefined ? resultData200 : <any>null;
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<boolean>(<any>null);
+    }
+
+    /**
+     * @param command (optional) 
+     * @return Success
+     */
+    putUser(id: number, command: UpdateUserCommand | null | undefined): Observable<UserDTO> {
+        let url_ = this.baseUrl + "/api/Users/PutUser/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -230,11 +291,11 @@ export class Client implements IClient {
         };
 
         return this.http.request("put", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processPut(response_);
+            return this.processPutUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processPut(<any>response_);
+                    return this.processPutUser(<any>response_);
                 } catch (e) {
                     return <Observable<UserDTO>><any>_observableThrow(e);
                 }
@@ -243,7 +304,7 @@ export class Client implements IClient {
         }));
     }
 
-    protected processPut(response: HttpResponseBase): Observable<UserDTO> {
+    protected processPutUser(response: HttpResponseBase): Observable<UserDTO> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -268,8 +329,8 @@ export class Client implements IClient {
     /**
      * @return Success
      */
-    delete(id: number): Observable<void> {
-        let url_ = this.baseUrl + "/api/Users/Delete/{id}";
+    deleteUser(id: number): Observable<void> {
+        let url_ = this.baseUrl + "/api/Users/DeleteUser/{id}";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
         url_ = url_.replace("{id}", encodeURIComponent("" + id)); 
@@ -283,11 +344,11 @@ export class Client implements IClient {
         };
 
         return this.http.request("delete", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processDelete(response_);
+            return this.processDeleteUser(response_);
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    return this.processDelete(<any>response_);
+                    return this.processDeleteUser(<any>response_);
                 } catch (e) {
                     return <Observable<void>><any>_observableThrow(e);
                 }
@@ -296,7 +357,7 @@ export class Client implements IClient {
         }));
     }
 
-    protected processDelete(response: HttpResponseBase): Observable<void> {
+    protected processDeleteUser(response: HttpResponseBase): Observable<void> {
         const status = response.status;
         const responseBlob = 
             response instanceof HttpResponse ? response.body : 
@@ -1570,6 +1631,46 @@ export interface IUserViewModel {
     userType?: UserViewModelUserType | undefined;
     photos?: Photo[] | undefined;
     isWorker?: boolean | undefined;
+}
+
+export class LoginUserQuery implements ILoginUserQuery {
+    email?: string | undefined;
+    password?: string | undefined;
+
+    constructor(data?: ILoginUserQuery) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.email = data["email"];
+            this.password = data["password"];
+        }
+    }
+
+    static fromJS(data: any): LoginUserQuery {
+        data = typeof data === 'object' ? data : {};
+        let result = new LoginUserQuery();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["email"] = this.email;
+        data["password"] = this.password;
+        return data; 
+    }
+}
+
+export interface ILoginUserQuery {
+    email?: string | undefined;
+    password?: string | undefined;
 }
 
 export class UpdateUserCommand implements IUpdateUserCommand {
