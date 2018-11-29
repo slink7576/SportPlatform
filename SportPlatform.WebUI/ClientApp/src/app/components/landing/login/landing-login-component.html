@@ -1,0 +1,46 @@
+<div *ngIf="!isLoading">
+  <div *ngIf="NotForgetPassword">
+    <form [formGroup]="firstFormGroup">
+      <mat-form-field>
+        <input matInput placeholder="Почта" formControlName="Email" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input matInput type="password" placeholder="Пароль" formControlName="Password" required>
+      </mat-form-field>
+      <br />
+      <p class="text-danger" *ngIf="LoginError">
+        Неверный логин или пароль
+      </p>
+      <br />
+      <button mat-raised-button class="mr-2 mb-2" (click)="ForgetPassword()">Забыли пароль?</button>
+      <button mat-raised-button color="primary" (click)="Login()">Войти</button>
+    </form>
+  </div>
+  <div *ngIf="!NotForgetPassword">
+    <form [formGroup]="secondFormGroup">
+      <div *ngIf="!Restored">
+        <mat-form-field>
+          <input matInput placeholder="Ваша почта" formControlName="Email" required>
+        </mat-form-field>
+        <br />
+      </div>
+      <div *ngIf="Restored">
+        Сообщение было отправлено на вашу почту
+      </div>
+      <br />
+      <br />
+      <button mat-raised-button class="mr-2 mb-2" (click)="ForgetPassword()">Войти</button>
+      <button mat-raised-button color="primary" (click)="Restore()">Восстановить пароль</button>
+    </form>
+  </div>
+</div>
+<div *ngIf="isLoading" class="row">
+  <div class="col-4">
+
+  </div>
+  <div class="col-8">
+    <mat-spinner class="ml-2 mt-2"></mat-spinner>
+  </div>
+  
+</div>

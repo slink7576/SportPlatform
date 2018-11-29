@@ -20,23 +20,41 @@ var LandingRegisterComponent = /** @class */ (function () {
     }
     LandingRegisterComponent.prototype.ngOnInit = function () {
         this.firstFormGroup = this._formBuilder.group({
-            Name: ['', forms_1.Validators.required],
+            Name: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(6)])],
         });
         this.secondFormGroup = this._formBuilder.group({
-            Email: ['', forms_1.Validators.email],
-            Password: ['', forms_1.Validators.required,],
-            ConfirmPassword: ['', forms_1.Validators.required],
+            Email: ['', forms_1.Validators.compose([forms_1.Validators.email, forms_1.Validators.minLength(4)])],
+            Password: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(6)])],
+            ConfirmPassword: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.minLength(6)])],
+            UserRole: ['', forms_1.Validators.required]
         }, {
             validator: password_validator_1.PasswordValidation.MatchPassword
         });
+    };
+    LandingRegisterComponent.prototype.getErrorEmailMessage = function () {
+        return this.secondFormGroup.controls['Email'].hasError('required') ? 'Введите значение' :
+            this.secondFormGroup.controls['Email'].hasError('email') ? 'Неправильная почта' :
+                '';
+    };
+    LandingRegisterComponent.prototype.getErrorNameMessage = function () {
+        return this.firstFormGroup.controls['Name'].hasError('required') ? 'Введите значение' :
+            this.firstFormGroup.controls['Name'].hasError('minlength') ? 'Минимальная длина 6 символов' : '';
+    };
+    LandingRegisterComponent.prototype.getErrorPasswordMessage = function () {
+        return this.secondFormGroup.controls['Password'].hasError('required') ? 'Введите значение' :
+            this.secondFormGroup.controls['Password'].hasError('minlength') ? 'Минимальная длина 6 символов' : '';
+    };
+    LandingRegisterComponent.prototype.getErrorPasswordSubmitMessage = function () {
+        return this.secondFormGroup.controls['ConfirmPassword'].hasError('required') ? 'Введите значение' :
+            this.secondFormGroup.controls['ConfirmPassword'].hasError('minlength') ? 'Минимальная длина 6 символов' :
+                this.secondFormGroup.controls['ConfirmPassword'].hasError('MatchPassword') ? 'Пароли должны совпадать' : '';
     };
     LandingRegisterComponent.prototype.Register = function () {
         var command = new sport_platform_api_1.CreateUserCommand();
         command.email = this.secondFormGroup.controls['Email'].value;
         command.name = this.firstFormGroup.controls['Name'].value;
         command.password = this.secondFormGroup.controls['Password'].value;
-        console.log(command);
-        this._client.post(command).subscribe(function (c) { return console.log(c); });
+        this._client.registerUser(command).subscribe(function (c) { return console.log(c); });
     };
     LandingRegisterComponent = __decorate([
         core_1.Component({

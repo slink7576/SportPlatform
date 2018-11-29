@@ -1,5 +1,157 @@
 
-  Landing page
-  <br />
-  <button mat-stroked-button routerLink="/admin/users" routerLinkActive="active">Admin Panel</button>
-<app-landing-register-component></app-landing-register-component>
+<section id="header">
+  <div class="jumbotron mb-0 main-bg">
+    <h1 class="display-4">Первая</h1>
+    <p class="lead">Уникальная спортивная платформа</p>
+    <hr class="bg-white">
+    <p class="lead">
+      Ваш персональный спортивный ассистент
+    </p>
+    <div>
+      <div class="text-right d-none d-sm-none d-md-block">
+        <a class="btn btn-outline-light btn-lg" href="#client" role="button">Клиенту</a>
+      </div>
+      <div class="text-right mt-2">
+        <a class="btn btn-outline-light btn-lg" href="#coach" role="button">Тренерам</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="login">
+  <hr class="mt-5 mb-5 border-white" />
+  <hr class="mt-5 mb-5 border-white" />
+  <hr class="mt-5 mb-5 border-white" />
+  <div class="mb-5 mt-5 container">
+    <div class="row">
+      <div class="col-6 text-center vr d-none d-sm-block">
+        <i class="fas fa-sync fa-7x text-main"></i>
+        <br />
+        <br />
+        <p>Синхронизируйте все в одном месте</p>
+        <a class="onhovernone" mat-raised-button href="#registration" role="button">Регистрация</a>
+      </div>
+      <div class="col-6 p-0 text-center container">
+        <app-landing-login-component></app-landing-login-component>
+      </div>
+    </div>
+  </div>
+  <hr class="mt-5 mb-5 border-white" />
+  <hr class="mt-5 mb-5 border-white" />
+  <hr class="mt-5 mb-5 border-white" />
+  <hr class="mt-5 mb-5 border-white" />
+  <hr />
+</section>
+<section id="client" class="d-none d-sm-none d-md-block">
+  <hr class="mt-5 mb-5 border-white" />
+  <div class="container mt-5 mb-5 p-5">
+    <div class="row mb-5">
+      <div class="col-3">
+        <div class="p-5 text-main text-center">
+          <i class="fas fa-dumbbell fa-5x"></i>
+        </div>
+        <div class="p-2 text-center">
+          <p>Синхронизируйте ваши тренировки</p>
+        </div>
+      </div>
+      <div class="col-3 offset-1">
+        <div class="p-5 text-main text-center">
+          <i class="fas fa-utensils fa-5x"></i>
+        </div>
+        <div class="p-2 text-center">
+          <p>Выбирайте нужную программу питания и отслеживайте ее</p>
+        </div>
+      </div>
+      <div class="col-3 offset-1">
+        <div class="p-5 text-main text-center">
+          <i class="far fa-calendar-alt fa-5x"></i>
+        </div>
+        <div class="p-2 text-center">
+          <p>Планируйте занятия как в одиночку так и с тренером</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="mt-5 mb-5 border-white" />
+  <hr class="mt-5 mb-5" />
+</section>
+<section id="registration">
+  <div class="mt-5 mb-5 p-5">
+    <div class="mb-5 mt-5 text-center">
+      <h1 class="display-4">Приступим</h1>
+    </div>
+    <app-landing-register-component></app-landing-register-component>
+  </div>
+  <hr class="mt-5 mb-5 border-white" />
+  <hr class="mt-5 border-white" />
+</section>
+<section id="coach">
+  <div class="main-bg mt-5 p-5">
+    <h1 class="display-4">Работаете в сфере здоровья?</h1>
+    <p class="lead">Посмотрите наше предложение для вас</p>
+    <hr class="bg-white" />
+    <hr class="border-main mt-5 mb-5" />
+    <div class="mt-5">
+      <div class="row">
+        <div class="col-6 text-right">
+          <h5>Управляйте всеми вашими клиентами в одном месте</h5>
+        </div>
+        <div class="col-6 text-center">
+          <i class="fas fa-users fa-5x"></i>
+        </div>
+      </div>
+      <hr class="border-main mt-5 mb-5" />
+      <hr class="bg-white" />
+      <hr class="border-main mt-5 mb-5" />
+      <div class="row">
+        <div class="col-6 text-center">
+          <i class="fas fa-sticky-note fa-5x"></i>
+        </div>
+        <div class="col-6 text-left">
+          <h5>Пишите программы питания, тренировок и делитесь ими с вашими клиентами</h5>
+        </div>
+      </div>
+      <hr class="border-main mt-5 mb-5" />
+      <hr class="bg-white" />
+      <hr class="border-main mt-5 mb-5" />
+      <div class="row">
+        <div class="col-6 text-right">
+          <h5>Планируйте тренировки и работу с клиентами</h5>
+        </div>
+        <div class="col-6 text-center">
+          <i class="fas fa-calendar-alt fa-5x"></i>
+        </div>
+      </div>
+      <hr class="border-main mt-5 mb-5" />
+      <hr class="bg-white" />
+      <hr class="border-main mt-5 mb-5" />
+      <div class="row">
+        <div class="col-6 text-center">
+          <i class="fas fa-chart-bar fa-5x"></i>
+        </div>
+        <div class="col-6 text-left">
+          <h5>Удобные сервисы формирования статистики</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="mt-5 pl-5 pr-5">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </div>
+</section>
+<section id="footer">
+  <div class="mt-5 main-bg p-3 text-center pr-0 mr-0">
+    <div class="row">
+      <div class="col-3">
+        Sergiy Popovych
+      </div>
+      <div class="col-9 text-right">
+        @slink7675 <i class="fab fa-telegram"></i>
+        <br />
+        slnkonline2@gmail.com <i class="fas fa-envelope"></i>
+      </div>
+    </div>
+  </div>
+</section>
