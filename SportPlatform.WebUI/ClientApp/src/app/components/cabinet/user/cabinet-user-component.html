@@ -1,0 +1,26 @@
+<mat-sidenav-container class="mat-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <app-cabinet-nav-component></app-cabinet-nav-component>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="bg-light">
+    <div class="row col-12 bg-white">
+      <button class="m-2" color="primary" mat-mini-fab (click)="switch()"><i class="fas fa-ellipsis-v"></i></button>
+    </div>
+    <hr class="mt-0" />
+    <div class="container bg-light">
+      <div class="row">
+        <div class="col-6">
+        </div>
+        <div class="col-3">
+          <app-infoblock-component [title]="'Количество тренировок'" [value]="43"></app-infoblock-component>
+        </div>
+        <div class="col-3">
+          <app-infoblock-component [title]="'Количество тренировок'" [value]="43"></app-infoblock-component>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
