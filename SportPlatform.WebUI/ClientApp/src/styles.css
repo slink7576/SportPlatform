@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 html, body { height: 100%; }
+html {
+  scroll-behavior: smooth;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 :root {
   --main-color: #673ab7;
@@ -7,7 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --gray-color: #d9dad9;
 }
 .main-bg {
-  background-color: var(--main-color);
+  background-color: var(--main-color) !important;
   color: white;
 }
 .secondary-bg {
@@ -20,11 +23,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-second {
   color: var(--secondary-color);
 }
-.vl {
-  border-left: 3px solid var(--secondary-color);
-}
 .vr {
-  border-left: 3px solid var(--secondary-color);
+  border-right: 1px solid var(--gray-color);
+}
+.vl {
+  border-left: 1px solid var(--gray-color);
 }
 .hr{
   color: var(--main-color)
@@ -32,4 +35,39 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .roundedbord {
   border: 1px solid var(--gray-color);
   border-radius: 2px;
+}
+.adcard {
+  min-height:200px;
+  min-width:50px;
+}
+.cardround {
+  border-left: 1px solid var(--gray-color);
+  border-right: 1px solid var(--gray-color);
+  border-bottom: 1px solid var(--gray-color);
+  border-radius: 2px;
+}
+.jumbotron{
+  border-radius: 0px !important;
+}
+.floating-center {
+  display: flex;
+  align-items: center;
+}
+.floating-right {
+  display: flex;
+  align-items: center;
+}
+.adinfo {
+  min-height:300px;
+  padding-top:100px;
+}
+.onhovernone:hover{
+  color:black;
+  text-decoration:none;
+}
+.border-white{
+  border-color:white;
+}
+.border-main {
+  border-color: var(--main-color);
 }
