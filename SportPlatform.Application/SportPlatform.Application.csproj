@@ -14,4 +14,8 @@
     <ProjectReference Include="..\SportPlatform.Persistence\SportPlatform.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Specialist\" />
+  </ItemGroup>
+
 </Project>
