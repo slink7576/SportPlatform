@@ -10,9 +10,13 @@ namespace SportPlatform.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasOne(c => c.Worker)
+            builder.HasOne(c => c.Specialist)
                 .WithOne(c => c.User)
-                .HasForeignKey<Worker>(c => c.WorkerId);
+                .HasForeignKey<Specialist>(c => c.SpecialistId);
+            builder.HasOne(c => c.Client)
+                .WithOne(c => c.User)
+                .HasForeignKey<Client>(c => c.ClientId);
+                
         }
     }
 }

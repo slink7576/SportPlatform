@@ -10,7 +10,7 @@ namespace SportPlatform.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<WorkHistory> builder)
         {
-            builder.HasOne(c => c.Worker)
+            builder.HasOne(c => c.Specialist)
                 .WithMany(c => c.WorkHistories);
         }
     }

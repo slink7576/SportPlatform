@@ -6,11 +6,11 @@ using System.Text;
 
 namespace SportPlatform.Persistence.Configurations
 {
-    public class CourseConfiguration
+    public class AdvanceConfiguration
     {
-        public void Configure(EntityTypeBuilder<Course> builder)
+        public void Configure(EntityTypeBuilder<Advance> builder)
         {
-            builder.HasOne(c => c.Specialist).WithMany(c => c.Courses);
+            builder.HasOne(c => c.Specialist).WithMany(c => c.Advances);
         }
     }
 }

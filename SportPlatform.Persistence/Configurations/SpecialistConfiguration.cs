@@ -6,9 +6,9 @@ using System.Text;
 
 namespace SportPlatform.Persistence.Configurations
 {
-    public class WorkerConfiguration
+    public class SpecialistConfiguration
     {
-        public void Configure(EntityTypeBuilder<Worker> builder)
+        public void Configure(EntityTypeBuilder<Specialist> builder)
         {
             builder.HasOne(c => c.User);
             builder.HasMany(c => c.TrainingPrograms);
