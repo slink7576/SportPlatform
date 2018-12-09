@@ -20,6 +20,8 @@ var LoginUserService = /** @class */ (function () {
         command.password = localStorage.getItem('password');
         this._client.login(command).subscribe(function (data) {
             if (data == false) {
+                localStorage.removeItem('email');
+                localStorage.removeItem('password');
                 _this._router.navigate(['/']);
             }
             else {

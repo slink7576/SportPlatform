@@ -15,6 +15,8 @@ export class LoginUserService implements CanActivate {
     command.password = localStorage.getItem('password');
     this._client.login(command).subscribe(data => {
       if (data == false) {
+        localStorage.removeItem('email');
+        localStorage.removeItem('password');
         this._router.navigate(['/']);
       } else {
         return true;
