@@ -1,10 +1,66 @@
-<button class="btn-block" mat-button routerLink="/" routerLinkActive="active">Главная</button>
+<button class="btn-block" mat-button routerLink="/" routerLinkActive="active">
+  <div class="row">
+    <div class="col-3">
+      <i class="fas fa-home" style="margin-top:10px"></i>
+    </div>
+    <div class="col-9 text-left">
+      Главная
+    </div>
+  </div>
+</button>
 <br />
-<button class="btn-block" mat-button (click)="Logout()">Тренировки</button>
+<button class="btn-block text-left" mat-button routerLink="/user/profile" routerLinkActive="active">
+  <div class="row">
+    <div class="col-3">
+      <i class="fas fa-user-circle" style="margin-top:10px"></i>
+    </div>
+    <div class="col-9 text-left">
+      Профиль
+    </div>
+  </div>
+</button>
 <br />
-<button class="btn-block" mat-button (click)="Logout()">Питание</button>
+<button class="btn-block" mat-button (click)="Logout()">
+  <div class="row">
+    <div class="col-3">
+      <i class="fas fa-dumbbell" style="margin-top:10px"></i>
+    </div>
+    <div class="col-9 text-left">
+      Тренировки
+    </div>
+  </div>
+</button>
 <br />
-<button class="btn-block" mat-button (click)="Logout()">Тренеры</button>
+<button class="btn-block text-left" mat-button (click)="Logout()">
+  <div class="row">
+    <div class="col-3">
+      <i class="fas fa-utensils" style="margin-top:10px"></i>
+    </div>
+    <div class="col-9 text-left">
+      Питание
+    </div>
+  </div>
+</button>
 <br />
-<button class="btn-block" mat-button (click)="Logout()">Выйти</button>
+<button class="btn-block text-left" mat-button (click)="Logout()">
+  <div class="row">
+    <div class="col-3">
+      <i class="fas fa-user-tie" style="margin-top:10px"></i>
+    </div>
+    <div class="col-9 text-left">
+      Тренеры
+    </div>
+  </div>
+</button>
+<br />
+<button class="btn-block text-left" mat-button (click)="Logout()">
+  <div class="row">
+    <div class="col-3">
+      <i class="fas fa-sign-out-alt" style="margin-top:10px"></i>
+    </div>
+    <div class="col-9 text-left">
+      Выйти
+    </div>
+  </div>
+</button>
 

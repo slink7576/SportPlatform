@@ -1,0 +1,32 @@
+<mat-sidenav-container class="mat-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <app-cabinet-nav-component></app-cabinet-nav-component>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="bg-light">
+    <div class="row col-12 bg-white m-0">
+      <button class="m-2" color="primary" mat-mini-fab (click)="switch()"><i class="fas fa-bars"></i></button>
+    </div>
+    <hr class="mt-0 mb-0" />
+    <div class="container bg-light mt-2">
+      <div class="bg-white roundedbord pl-4 pr-4 pt-4 pb-4">
+        <div class="row">
+          <div class="col-8">
+            <p class="lead mt-2">Sergiy Popovych</p>
+            slnkonline2@gmail.com
+          </div>
+          <div class="col-4 text-right">
+            <img class="rounded-circle" style="max-height:50px;max-width:50px;" src="https://www.tutorialspoint.com/videotutorials/images/numerical_ability_home.jpg" />
+          </div>
+        </div>
+        <hr />
+        <div class="col-12 p-0">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </div>
+           </div>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
