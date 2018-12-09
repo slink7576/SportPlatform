@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SportPlatform.Application.Users.Queries.Shared;
 using System;
 using System.Collections.Generic;
 using System.Text;

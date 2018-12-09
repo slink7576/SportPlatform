@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace SportPlatform.Application.Users.Queries.GetAllUsersQuery
+namespace SportPlatform.Application.Users.Queries.Shared
 {
-    public class UserDTO
+    public class UserViewModel
     {
         public int UserId { get; set; }
         public string Name { get; set; }
@@ -17,19 +17,22 @@ namespace SportPlatform.Application.Users.Queries.GetAllUsersQuery
         public bool SubmittedEmail { get; set; }
         public string PhotoUrl { get; set; }
 
-        public int? WorkerId { get; set; }
-        public Worker Worker { get; set; }
+        public int? SpecialistId { get; set; }
+        public Specialist Specialist { get; set; }
+
+        public int? ClientId { get; set; }
+        public Client Client { get; set; }
 
         public UserType UserType { get; set; }
         public ICollection<Photo> Photos { get; private set; }
 
-        public bool IsWorker { get; set; }
+        public bool IsSpecialist { get; set; }
 
-        public static Expression<Func<User, UserDTO>> Projection
+        public static Expression<Func<User, UserViewModel>> Projection
         {
             get
             {
-                return c => new UserDTO
+                return c => new UserViewModel
                 {
                     UserId = c.UserId,
                     Age = c.Age,
@@ -41,13 +44,16 @@ namespace SportPlatform.Application.Users.Queries.GetAllUsersQuery
                     SubmittedEmail = c.SubmittedEmail,
                     Surname = c.Surname,
                     UserType = c.UserType,
-                    Worker = c.Worker,
-                    IsWorker = c.Worker == null ? false : true
+                    Specialist = c.Specialist,
+                    IsSpecialist = c.Specialist == null ? false : true,
+                    ClientId = c.Client == null ? -1 : c.Client.ClientId,
+                    SpecialistId = c.Specialist == null ? -1 : c.Specialist.SpecialistId,
+                    Client = c.Client
                 };
             }
         }
 
-        public static UserDTO Create(User user)
+        public static UserViewModel Create(User user)
         {
             return Projection.Compile().Invoke(user);
         }

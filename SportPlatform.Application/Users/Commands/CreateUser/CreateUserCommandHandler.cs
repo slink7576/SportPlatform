@@ -20,14 +20,23 @@ namespace SportPlatform.Application.Users.Commands.CreateUser
 
         public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
+
             var entity = new User
             {
                 Name = request.Name,
                 Email = request.Email,
                 Password = request.Password,
-                SubmittedEmail = false
+                SubmittedEmail = false,
             };
-
+                
+            if(request.IsSpecialist)
+            {
+                entity.Specialist = new Specialist();
+            }
+            else
+            {
+                entity.Client = new Client();
+            }
 
             _context.Users.Add(entity);
 

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using SportPlatform.Application.Exceptions;
+using SportPlatform.Application.Users.Queries.Shared;
 using SportPlatform.Persistence;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,9 @@ namespace SportPlatform.Application.Users.Queries.GetUser
         public async Task<UserViewModel> Handle(GetUserQuery request, CancellationToken cancellationToken)
         {
             var user = await _context.Users
-                .Where(c => c.UserId == request.Id)
+                .Where(c => c.UserId == request.Id) 
+                .Include(c => c.Specialist)
+                .Include(c => c.Client)
                 .Select(UserViewModel.Projection)
                 .SingleOrDefaultAsync(cancellationToken);
 

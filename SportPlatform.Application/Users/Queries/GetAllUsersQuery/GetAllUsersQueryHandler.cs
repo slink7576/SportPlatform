@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using SportPlatform.Application.Users.Queries.Shared;
 using SportPlatform.Persistence;
 using System;
 using System.Collections.Generic;
@@ -23,8 +24,8 @@ namespace SportPlatform.Application.Users.Queries.GetAllUsersQuery
         {
             var model = new UsersListViewModel
             {
-                Users = await _context.Users
-                 .Select(UserDTO.Projection)
+                Users = await _context.Users.Include(c => c.Specialist).Include(c => c.Client)
+                 .Select(UserViewModel.Projection)
                  .ToListAsync(cancellationToken)
             };
             return model;
