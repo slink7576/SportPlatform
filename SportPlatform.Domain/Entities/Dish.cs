@@ -17,7 +17,7 @@ namespace SportPlatform.Domain.Entities
         public int Calories { get; set; }
 
         public ICollection<DishMenu> DishMenus { get; private set; }
-        public ICollection<DishIngridient> DishIngridients { get; set; }
+        public ICollection<DishIngridient> DishIngridients { get; private set; }
     }
 }
 

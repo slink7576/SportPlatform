@@ -13,7 +13,7 @@ namespace SportPlatform.Domain.Entities
         public string Place { get; set; }
         public string DocumentUrl { get; set; }
 
-        public int WorkerId { get; set; }
-        public Worker Worker { get; set; }
+        public int SpecialistId { get; set; }
+        public Specialist Specialist { get; set; }
     }
 }

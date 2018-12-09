@@ -4,9 +4,9 @@ using System.Text;
 
 namespace SportPlatform.Domain.Entities
 {
-    public class Worker
+    public class Specialist
     {
-        public Worker()
+        public Specialist()
         {
             this.WorkHistories = new HashSet<WorkHistory>();
             this.Courses = new HashSet<Course>();
@@ -14,7 +14,7 @@ namespace SportPlatform.Domain.Entities
             this.TrainingPrograms = new HashSet<TrainingProgram>();
             this.FoodPrograms = new HashSet<FoodProgram>();
         }
-        public int WorkerId { get; set; }
+        public int SpecialistId { get; set; }
         public string About { get; set; }
         public string WorkPlace { get; set; }
         public string WorkTitle { get; set; }
@@ -27,5 +27,6 @@ namespace SportPlatform.Domain.Entities
         public ICollection<FoodProgram> FoodPrograms { get; private set; }
         public ICollection<Certificate> Certificates { get; private set; }
         public ICollection<TrainingProgram> TrainingPrograms { get; private set; }
+        public ICollection<Advance> Advances { get; private set; }
     }
 }

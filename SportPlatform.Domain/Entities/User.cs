@@ -21,7 +21,8 @@ namespace SportPlatform.Domain.Entities
         public string Password { get; set; }
         public string PhotoUrl { get; set; }
 
-        public Worker Worker { get; set; }
+        public Specialist Specialist { get; set; }
+        public Client Client { get; set; }
 
         public UserType UserType { get; set; }
         public ICollection<Photo> Photos { get; private set; }
