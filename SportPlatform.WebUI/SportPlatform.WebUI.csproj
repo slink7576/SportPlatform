@@ -40,6 +40,7 @@
     <None Remove="ClientApp\src\app\components\admin\nav\admin-nav-component.ts" />
     <None Remove="ClientApp\src\app\components\admin\users\admin-users-component.ts" />
     <None Remove="ClientApp\src\app\components\cabinet\nav\cabinet-nav-componentt.ts" />
+    <None Remove="ClientApp\src\app\components\cabinet\profile\cabinet-profile-component.ts" />
     <None Remove="ClientApp\src\app\components\cabinet\user\cabinet-user-component.ts" />
     <None Remove="ClientApp\src\app\components\landing\login\landing-login-component.ts" />
     <None Remove="ClientApp\src\app\components\landing\main\landing-main-component.ts" />
@@ -60,6 +61,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\components\admin\nav\admin-nav-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\admin\users\admin-users-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\cabinet\nav\cabinet-nav-componentt.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\components\cabinet\profile\cabinet-profile-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\cabinet\user\cabinet-user-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\landing\login\landing-login-component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\components\landing\main\landing-main-component.ts" />
