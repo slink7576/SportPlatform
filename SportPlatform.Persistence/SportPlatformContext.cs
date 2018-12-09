@@ -27,8 +27,12 @@ namespace SportPlatform.Persistence
         public DbSet<Training> Trainings { get; set; }
         public DbSet<TrainingAction> TrainingActions { get; set; }
         public DbSet<TrainingProgram> TrainingPrograms { get; set; }
-        public DbSet<Worker> Workers { get; set; }
+        public DbSet<Specialist> Workers { get; set; }
         public DbSet<WorkHistory> WorkHistories { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<ClientFoodProgram> ClientFoodPrograms { get; set; }
+        public DbSet<ClientTrainingProgram> ClientTrainingPrograms { get; set; }
+        public DbSet<Advance> Advances { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
