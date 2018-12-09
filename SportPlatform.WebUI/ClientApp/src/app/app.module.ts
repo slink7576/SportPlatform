@@ -17,7 +17,7 @@ import { LoginUserService } from './services/login-user-service';
 import { LoginAdminService } from './services/login-admin-service';
 import { CabinetNavComponent } from './components/cabinet/nav/cabinet-nav-componentt';
 import { InfoBlockComponent } from './components/shared/infoblock/infoblock-component';
-import { MatStepLabel } from '@angular/material';
+import { CabinetProfileComponent } from './components/cabinet/profile/cabinet-profile-component';
 
 
 @NgModule({
@@ -30,7 +30,8 @@ import { MatStepLabel } from '@angular/material';
     LandingLoginComponent,
     CabinetUserComponent,
     CabinetNavComponent,
-InfoBlockComponent
+    InfoBlockComponent,
+CabinetProfileComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,6 +41,7 @@ InfoBlockComponent
     RouterModule.forRoot([
       { path: '', component: LandingMainComponent, pathMatch: 'full' },
       { path: 'user/dashboard', component: CabinetUserComponent, canActivate: [LoginUserService] },
+      { path: 'user/profile', component: CabinetProfileComponent, canActivate: [LoginUserService] },
       { path: 'admin/users', component: AdminUsersComponent, canActivate: [LoginAdminService] },
     ]),
     BrowserAnimationsModule,
