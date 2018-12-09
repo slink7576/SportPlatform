@@ -8,8 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var LandingMainComponent = /** @class */ (function () {
-    function LandingMainComponent() {
+    function LandingMainComponent(_router) {
+        this._router = _router;
     }
+    LandingMainComponent.prototype.ngOnInit = function () {
+        if (localStorage.getItem('email') != null) {
+            this._router.navigate(['user/dashboard']);
+        }
+    };
     LandingMainComponent = __decorate([
         core_1.Component({
             selector: 'app-landing-main-component',

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component(
   {
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
     templateUrl: './landing-main-component.html'
   })
 
-export class LandingMainComponent {
+export class LandingMainComponent implements OnInit{
 
+  constructor(private _router: Router) { }
+
+  ngOnInit() {
+    if (localStorage.getItem('email') != null) {
+      this._router.navigate(['user/dashboard']);
+    } 
+  }
 }
